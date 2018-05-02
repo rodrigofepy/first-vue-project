@@ -5,7 +5,7 @@
       <form @submit.prevent="addSkill">
         <input type="text" placeholder="Enter a skill you have.." v-model="skill" v-validate="'min:5'" name="skill">
 
-        <transition name="alert-in">
+        <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
           <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
         </transition>
       </form>
@@ -52,6 +52,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
+  
   .holder {
     background: #fff;
   }
